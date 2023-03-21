@@ -6,8 +6,6 @@ import plotly.graph_objects as go
 from plotly.express.colors import sample_colorscale
 from datetime import datetime, timedelta
 
-df = pd.read_csv('df_combined_lego.csv')
-
 #Set Header
 #image = Image.open('lego-bricks.jpeg')
 
