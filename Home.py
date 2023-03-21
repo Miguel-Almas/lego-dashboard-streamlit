@@ -6,6 +6,11 @@ import plotly.graph_objects as go
 from plotly.express.colors import sample_colorscale
 from datetime import datetime, timedelta
 
+def do_stuff_on_page_load():
+    st.set_page_config(layout="wide")
+
+do_stuff_on_page_load()
+
 #Set Header
 #image = Image.open('lego-bricks.jpeg')
 
