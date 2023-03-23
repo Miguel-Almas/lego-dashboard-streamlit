@@ -4,4 +4,4 @@ plotly
 datetime
 discord
 statsmodels
-sklearn
+scikit-learn
