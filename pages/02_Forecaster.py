@@ -40,7 +40,7 @@ def create_corr_plot(series, plot_pacf=False):
 do_stuff_on_page_load()
 
 st.header('ARIMA Model Forecaster', anchor=None)
-st.text('In this page you will be able to perform the entire ARIMA flow.')
+st.text('In this page you will be able to perform the entire ARIMA flow. Start by choosing the order of differencing that ensures stationarity.')
 
 #Set Sidebar Elements
 with st.sidebar:
@@ -66,7 +66,6 @@ df_train = df_nbr_sets_year.iloc[:-5]
 df_test = df_nbr_sets_year.iloc[-5:]
 
 with st.container():
-    st.text('Start by choosing the order of differencing that ensures stationarity.')
     order_differencing = st.slider('Order of Differencing:',min_value=0, max_value=2, value=1)
     if order_differencing == 0:
         df_train['nbr_sets_diff'] = df_train.nbr_sets
