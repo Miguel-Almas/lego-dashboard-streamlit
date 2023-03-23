@@ -5,8 +5,14 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.express.colors import sample_colorscale
 from datetime import datetime, timedelta
+from PIL import Image
 
-st.header('Lego Sets Explorer', anchor=None)
+def do_stuff_on_page_load():
+    st.set_page_config(layout="wide")
+
+do_stuff_on_page_load()
+
+st.header('Theme Explorer', anchor=None)
 
 #Set Sidebar Elements
 with st.sidebar:
