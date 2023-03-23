@@ -137,7 +137,7 @@ with st.container():
     st.text(f"On the test set, for RMSE is {np.sqrt(mean_squared_error(df_test.nbr_sets,preds_arima)):.2f}")
 
 if st.button('Send Forecasts to Discord'):
-    webhook_url = 'https://discord.com/api/webhooks/1088594943628562554/dxj9mxwEUQqogazWm-VXRvYzNnFO71pK-b9u0y7jaS6vf-sT4wfCp5HHFLzd6SY37c2i'
+    webhook_url = st.text_input('Insert the Discord Webhook URL here!')
     webhook = SyncWebhook.from_url(webhook_url)
     webhook.send("The latest ARIMA forecast is in!")
     webhook.send(file=File('arima_forecast.png'))
