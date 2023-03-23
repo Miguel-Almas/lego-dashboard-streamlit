@@ -5,3 +5,4 @@ datetime
 discord
 statsmodels
 scikit-learn
+kaleido
