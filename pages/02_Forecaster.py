@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from plotly.express.colors import sample_colorscale
 from datetime import datetime, timedelta
 from PIL import Image
-from discord import SyncWebhook
+from discord import SyncWebhook, File
 from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.tsa.stattools import pacf, acf
@@ -130,14 +130,16 @@ with st.container():
 
     fig_arima.update_layout(title= 'Number of New Sets per Year and ARIMA Predictions', xaxis_title='Year', yaxis_title='Number of New Sets')
     st.plotly_chart(fig_arima,use_container_width =True)
+    fig_arima.write_image("arima_forecast.png")
 
     #Print Test Set RMSE
     preds_arima = arima_model.forecast(5)
     st.text(f"On the test set, for RMSE is {np.sqrt(mean_squared_error(df_test.nbr_sets,preds_arima)):.2f}")
 
 if st.button('Send Forecasts to Discord'):
-    webhook_url = 'https://discord.com/api/webhooks/1088031939673460807/7pQ1Jas9ts2S-pLMC2bAaBQMLlDBehNT-lUzVcGxpJzSkoNnJfMqRgf0XkdFC4Z0yxeY'
+    webhook_url = 'https://discord.com/api/webhooks/1088594943628562554/dxj9mxwEUQqogazWm-VXRvYzNnFO71pK-b9u0y7jaS6vf-sT4wfCp5HHFLzd6SY37c2i'
     webhook = SyncWebhook.from_url(webhook_url)
-    webhook.send("Forecast sent!")
+    webhook.send("The latest ARIMA forecast is in!")
+    webhook.send(file=File('arima_forecast.png'))
 
     st.write('Forecasts sent!')
