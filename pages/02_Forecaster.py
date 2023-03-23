@@ -135,9 +135,9 @@ with st.container():
     #Print Test Set RMSE
     preds_arima = arima_model.forecast(5)
     st.text(f"On the test set, for RMSE is {np.sqrt(mean_squared_error(df_test.nbr_sets,preds_arima)):.2f}")
+    webhook_url = st.text_input('Insert the Discord Webhook URL here!')
 
 if st.button('Send Forecasts to Discord'):
-    webhook_url = st.text_input('Insert the Discord Webhook URL here!')
     webhook = SyncWebhook.from_url(webhook_url)
     webhook.send("The latest ARIMA forecast is in!")
     webhook.send(file=File('arima_forecast.png'))
