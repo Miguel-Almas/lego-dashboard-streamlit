@@ -146,14 +146,14 @@ with st.expander("Largest Lego Set per Year",expanded=True):
             hover_name = 'theme_set')
         fig_largest_set_year.update_layout(xaxis_title='Year', yaxis_title='Number of New Parts per Set')
 
-        fig_largest_set_year.add_trace(
-            go.Scatter(
-                x=largest_set_year.year,
-                y=largest_set_year.num_parts,
-                mode='lines', 
-                line={'dash': 'dash', 'color': 'black'},
-                showlegend=False
-            ))
+        #fig_largest_set_year.add_trace(
+        #    go.Scatter(
+        #        x=largest_set_year.year,
+        #        y=largest_set_year.num_parts,
+        #        mode='lines', 
+        #        line={'dash': 'dash', 'color': 'black'},
+        #        showlegend=False
+        #    ))
         st.plotly_chart(fig_largest_set_year,use_container_width =True)
 
 #Free table explorer
