@@ -107,7 +107,7 @@ with st.container():
         param_q = st.number_input('Insert the value of hyperparameter q',min_value=0,max_value=10,value=0,step=1,format='%i')
     
     #Initialize and fit your first guess for ARIMA hyperparameters
-    arima = ARIMA(df_train.nbr_sets,order=(param_p,1,param_q))
+    arima = ARIMA(df_train.nbr_sets,order=(param_p,order_differencing,param_q))
     arima_model = arima.fit()
 
     fig_arima = go.Figure()
