@@ -66,7 +66,7 @@ df_train = df_nbr_sets_year.iloc[:-5]
 df_test = df_nbr_sets_year.iloc[-5:]
 
 with st.container():
-    order_differencing = st.slider('Order of Differencing:',min_value=0, max_value=2, value=1)
+    order_differencing = st.slider('Order of Differencing:',min_value=0, max_value=2, value=0)
     if order_differencing == 0:
         df_train['nbr_sets_diff'] = df_train.nbr_sets
     else:
